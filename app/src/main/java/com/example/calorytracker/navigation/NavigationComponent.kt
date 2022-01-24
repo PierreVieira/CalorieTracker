@@ -1,7 +1,7 @@
 package com.example.calorytracker.navigation
 
 import androidx.compose.runtime.Composable
-import com.example.core.navigation.Route
+import com.example.core.navigation.AppRoutes
 import com.example.core_ui.navigation.NavigationHost
 import com.example.core_ui.navigation.extensions.composable
 import com.example.core_ui.navigation.extensions.navigate
@@ -9,32 +9,32 @@ import com.example.onboarding_presentation.welcome.WelcomeScreen
 
 @Composable
 fun NavigationComponent() {
-    NavigationHost(startRoute = Route.WELCOME) { navController ->
-        composable(Route.WELCOME) {
+    NavigationHost(startRoute = AppRoutes.WELCOME) { navController ->
+        composable(AppRoutes.WELCOME) {
             WelcomeScreen(onNavigate = navController::navigate)
         }
-        composable(Route.AGE) {
+        composable(AppRoutes.AGE) {
 
         }
-        composable(Route.GENDER) {
+        composable(AppRoutes.GENDER) {
 
         }
-        composable(Route.HEIGHT) {
+        composable(AppRoutes.HEIGHT) {
 
         }
-        composable(Route.WEIGHT) {
+        composable(AppRoutes.WEIGHT) {
 
         }
-        composable(Route.NUTRIENT_GOAL) {
+        composable(AppRoutes.NUTRIENT_GOAL) {
 
         }
-        composable(Route.ACTIVITY) {
+        composable(AppRoutes.ACTIVITY) {
 
         }
-        composable(Route.GOAL) {
+        composable(AppRoutes.GOAL) {
 
         }
-        composable(Route.TRACKER_OVERVIEW) {
+        composable(AppRoutes.TRACKER_OVERVIEW) {
 
         }
     }

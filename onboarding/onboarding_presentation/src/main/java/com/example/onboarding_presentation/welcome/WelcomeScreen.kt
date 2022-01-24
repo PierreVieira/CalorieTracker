@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.example.core.R
-import com.example.core.navigation.Route
+import com.example.core.navigation.AppRoutes
 import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
 import com.example.onboarding_presentation.components.ActionButton
@@ -35,7 +35,7 @@ fun WelcomeScreen(
         ActionButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             text = stringResource(id = R.string.next),
-            onClick = { onNavigate(UiEvent.Navigate(Route.AGE)) }
+            onClick = { onNavigate(UiEvent.Navigate(AppRoutes.AGE)) }
         )
     }
 }

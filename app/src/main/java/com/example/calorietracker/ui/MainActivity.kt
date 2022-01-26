@@ -3,6 +3,10 @@ package com.example.calorietracker.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Scaffold
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.ui.Modifier
 import com.example.calorietracker.navigation.NavigationComponent
 import com.example.core_ui.presentation.theme.CalorieTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -13,7 +17,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CalorieTrackerTheme {
-                NavigationComponent()
+                val scaffoldState = rememberScaffoldState()
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    scaffoldState = scaffoldState
+                ) {
+                    NavigationComponent(scaffoldState)
+                }
             }
         }
     }

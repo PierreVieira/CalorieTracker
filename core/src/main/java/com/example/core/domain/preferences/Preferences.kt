@@ -15,8 +15,11 @@ interface Preferences {
     fun saveGoalType(goalType: GoalType)
     fun saveCarbRatio(carbRatio: Float)
     fun saveProteinRatio(proteinRatio: Float)
-    fun saveFatRatio(fatRatio: Float)
 
+    fun getAge(): Int
+    fun getGender(): Gender
+
+    fun saveFatRatio(fatRatio: Float)
     fun loadUserInfo(): UserInfo
 
     companion object {
@@ -29,5 +32,8 @@ interface Preferences {
         const val KEY_PROTEIN_RATIO = "protein_ratio"
         const val KEY_CARB_RATIO = "carb_ratio"
         const val KEY_FAT_RATIO = "fat_ratio"
+
+        const val DEFAULT_AGE = 20
+        val defaultGender = Gender.MALE
     }
 }

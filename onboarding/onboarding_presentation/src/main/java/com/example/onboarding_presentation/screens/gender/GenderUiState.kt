@@ -4,5 +4,4 @@ import com.example.core.domain.model.Gender
 
 data class GenderUiState(
     val selectedGender: Gender
-) {
-}
+)

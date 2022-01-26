@@ -48,9 +48,25 @@ class DefaultPreferences @Inject constructor(
         editor.putFloat(Preferences.KEY_FAT_RATIO, fatRatio)
     }
 
+    override fun getAge(): Int {
+        return getInt(
+            key = Preferences.KEY_AGE,
+            defaultValue = Preferences.DEFAULT_AGE
+        )
+    }
+
+    override fun getGender(): Gender {
+        return Gender.fromString(
+            getString(
+                key = Preferences.KEY_GENDER,
+                defaultValue = Preferences.defaultGender.name
+            )
+        )
+    }
+
     override fun loadUserInfo(): UserInfo {
-        val gender = Gender.fromString(getString(Preferences.KEY_AGE))
-        val age = getInt(Preferences.KEY_AGE)
+        val gender = getGender()
+        val age = getAge()
         val weight = getFloat(Preferences.KEY_WEIGHT)
         val height = getInt(Preferences.KEY_HEIGHT)
         val activityLevel = ActivityLevel.fromString(getString(Preferences.KEY_ACTIVITY_LEVEL))
@@ -71,7 +87,12 @@ class DefaultPreferences @Inject constructor(
         )
     }
 
-    private fun getInt(key: String): Int = sharedPref.getInt(key, -1)
-    private fun getFloat(key: String): Float = sharedPref.getFloat(key, -1f)
-    private fun getString(key: String): String = sharedPref.getString(key, "") ?: ""
+    private fun getInt(key: String, defaultValue: Int = -1): Int =
+        sharedPref.getInt(key, defaultValue)
+
+    private fun getFloat(key: String, defaultValue: Float = -1f): Float =
+        sharedPref.getFloat(key, defaultValue)
+
+    private fun getString(key: String, defaultValue: String = ""): String =
+        sharedPref.getString(key, defaultValue) ?: defaultValue
 }

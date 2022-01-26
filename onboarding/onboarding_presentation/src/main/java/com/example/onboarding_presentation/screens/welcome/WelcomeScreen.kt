@@ -12,14 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.example.core.R
-import com.example.core.util.NavigationEvent
+import com.example.core.presentation.NavigationUiEvent
 import com.example.core_ui.presentation.components.spacers.VerticalSpacer
 import com.example.core_ui.presentation.theme.LocalSpacing
 import com.example.onboarding_presentation.components.buttons.ActionButton
 
 @Composable
 fun WelcomeScreen(
-    onNavigate: (NavigationEvent.Navigate) -> Unit
+    onNavigate: (NavigationUiEvent.Navigate) -> Unit
 ) {
     val spacing = LocalSpacing.current
     Column(

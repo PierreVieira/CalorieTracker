@@ -2,8 +2,10 @@ package com.example.onboarding_presentation.screens.gender
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.core.domain.model.Gender
 import com.example.core.domain.preferences.Preferences
+import com.example.core.presentation.NavigationUiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +22,7 @@ class GenderViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(
         GenderUiState(
-            Gender.MALE
+            selectedGender = preferences.getGender()
         )
     )
 
@@ -39,9 +41,20 @@ class GenderViewModel @Inject constructor(
     }
 
     fun onNextClick() {
+        saveGender()
         viewModelScope.launch {
-            preferences.saveGender(uiState.value.selectedGender)
             _uiEvent.send(GenderUiEvent.NavigateToNext)
         }
+    }
+
+    fun onBackClick() {
+        saveGender()
+        viewModelScope.launch {
+            _uiEvent.send(GenderUiEvent.NavigateToBack)
+        }
+    }
+
+    private fun saveGender() {
+        preferences.saveGender(uiState.value.selectedGender)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.core_ui.navigation.extensions
+package com.example.core_ui.presentation.navigation.extensions
 
 import androidx.navigation.NavController
 import com.example.core.util.UiEvent

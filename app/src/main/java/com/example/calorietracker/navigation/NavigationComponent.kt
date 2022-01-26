@@ -2,10 +2,10 @@ package com.example.calorietracker.navigation
 
 import androidx.compose.runtime.Composable
 import com.example.core.navigation.AppRoutes
-import com.example.core_ui.navigation.NavigationHost
-import com.example.core_ui.navigation.extensions.composable
-import com.example.core_ui.navigation.extensions.navigate
-import com.example.onboarding_presentation.welcome.WelcomeScreen
+import com.example.core_ui.presentation.navigation.NavigationHost
+import com.example.core_ui.presentation.navigation.extensions.composable
+import com.example.core_ui.presentation.navigation.extensions.navigate
+import com.example.onboarding_presentation.screens.welcome.WelcomeScreen
 
 @Composable
 fun NavigationComponent() {

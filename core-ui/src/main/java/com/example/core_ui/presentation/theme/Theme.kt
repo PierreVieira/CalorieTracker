@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.theme
+package com.example.core_ui.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -7,8 +7,8 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
-import com.example.core_ui.Dimensions
-import com.example.core_ui.LocalSpacing
+import com.example.core_ui.presentation.Dimensions
+import com.example.core_ui.presentation.LocalSpacing
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,

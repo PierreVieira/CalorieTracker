@@ -1,4 +1,4 @@
-package com.example.core_ui.navigation
+package com.example.core_ui.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder

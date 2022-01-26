@@ -1,6 +1,9 @@
-package com.example.onboarding_presentation.welcome
+package com.example.onboarding_presentation.screens.welcome
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -11,8 +14,9 @@ import androidx.compose.ui.text.style.TextAlign
 import com.example.core.R
 import com.example.core.navigation.AppRoutes
 import com.example.core.util.UiEvent
-import com.example.core_ui.LocalSpacing
-import com.example.onboarding_presentation.components.ActionButton
+import com.example.core_ui.presentation.LocalSpacing
+import com.example.core_ui.presentation.components.spacers.VerticalSpacer
+import com.example.onboarding_presentation.components.buttons.ActionButton
 
 @Composable
 fun WelcomeScreen(
@@ -31,7 +35,7 @@ fun WelcomeScreen(
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.h1
         )
-        Spacer(modifier = Modifier.height(spacing.medium))
+        VerticalSpacer(spacing.medium)
         ActionButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             text = stringResource(id = R.string.next),

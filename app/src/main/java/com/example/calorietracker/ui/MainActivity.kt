@@ -8,7 +8,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.ui.Modifier
 import com.example.calorietracker.navigation.NavigationComponent
-import com.example.core_ui.presentation.theme.CalorieTrackerTheme
+import com.example.ui.presentation.theme.CalorieTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

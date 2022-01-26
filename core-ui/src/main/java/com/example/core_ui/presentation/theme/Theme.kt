@@ -37,11 +37,9 @@ fun CalorieTrackerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = getColors(darkTheme)
-    val dimensions = Dimensions()
-    CompositionLocalProvider(LocalSpacing provides dimensions) {
+    CompositionLocalProvider(LocalSpacing provides Dimensions()) {
         MaterialTheme(
-            colors = colors,
+            colors = getColors(darkTheme),
             typography = Typography,
             shapes = Shapes,
             content = content
@@ -49,9 +47,5 @@ fun CalorieTrackerTheme(
     }
 }
 
-@Composable
-private fun getColors(isDarkTheme: Boolean) = if (isDarkTheme) {
-    DarkColorPalette
-} else {
-    LightColorPalette
-}
+private fun getColors(isDarkTheme: Boolean) =
+    if (isDarkTheme) DarkColorPalette else LightColorPalette

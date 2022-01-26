@@ -1,4 +1,4 @@
-package com.example.calorytracker.ui.theme
+package com.example.calorietracker.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

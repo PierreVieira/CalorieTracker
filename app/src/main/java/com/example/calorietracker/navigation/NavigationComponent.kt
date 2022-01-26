@@ -1,4 +1,4 @@
-package com.example.calorytracker.navigation
+package com.example.calorietracker.navigation
 
 import androidx.compose.runtime.Composable
 import com.example.core.navigation.AppRoutes

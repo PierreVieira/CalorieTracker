@@ -5,6 +5,7 @@ import com.example.core.navigation.AppRoutes
 import com.example.core_ui.presentation.navigation.NavigationHost
 import com.example.core_ui.presentation.navigation.extensions.composable
 import com.example.core_ui.presentation.navigation.extensions.navigate
+import com.example.onboarding_presentation.screens.gender.GenderScreen
 import com.example.onboarding_presentation.screens.welcome.WelcomeScreen
 
 @Composable
@@ -17,7 +18,7 @@ fun NavigationComponent() {
 
         }
         composable(AppRoutes.GENDER) {
-
+            GenderScreen(onNavigate = navController::navigate)
         }
         composable(AppRoutes.HEIGHT) {
 

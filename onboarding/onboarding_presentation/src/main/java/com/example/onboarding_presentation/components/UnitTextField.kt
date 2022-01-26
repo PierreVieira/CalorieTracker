@@ -1,6 +1,9 @@
 package com.example.onboarding_presentation.components
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
@@ -11,8 +14,8 @@ import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.sp
-import com.example.core_ui.presentation.LocalSpacing
 import com.example.core_ui.presentation.components.spacers.HorizontalSpacer
+import com.example.core_ui.presentation.theme.LocalSpacing
 
 @Composable
 fun UnitTextField(

@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.core_ui.presentation.LocalSpacing
-import com.example.core_ui.presentation.theme.CaloryTrackerTheme
+import com.example.core_ui.presentation.theme.CalorieTrackerTheme
+import com.example.core_ui.presentation.theme.LocalSpacing
 
 @Composable
 fun ActionButton(
@@ -40,7 +40,7 @@ fun ActionButton(
 @Composable
 @Preview
 fun ActionButtonPreview() {
-    CaloryTrackerTheme {
+    CalorieTrackerTheme {
         ActionButton(
             text = "Next",
             onClick = {}

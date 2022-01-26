@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.example.core_ui.presentation.LocalSpacing
+import com.example.core_ui.presentation.theme.LocalSpacing
 
 @Composable
 fun SelectableButton(
@@ -44,7 +44,7 @@ fun SelectableButton(
             .clickable {
                 onClick()
             }
-            .padding(LocalSpacing.current.small)
+            .padding(LocalSpacing.current.medium)
     ) {
         Text(
             text = text,

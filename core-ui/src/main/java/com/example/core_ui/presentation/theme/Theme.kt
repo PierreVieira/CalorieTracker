@@ -7,8 +7,6 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
-import com.example.core_ui.presentation.Dimensions
-import com.example.core_ui.presentation.LocalSpacing
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,
@@ -35,16 +33,13 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun CaloryTrackerTheme(
+fun CalorieTrackerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
-    CompositionLocalProvider(LocalSpacing provides Dimensions()) {
+    val colors = getColors(darkTheme)
+    val dimensions = Dimensions()
+    CompositionLocalProvider(LocalSpacing provides dimensions) {
         MaterialTheme(
             colors = colors,
             typography = Typography,
@@ -52,4 +47,11 @@ fun CaloryTrackerTheme(
             content = content
         )
     }
+}
+
+@Composable
+private fun getColors(isDarkTheme: Boolean) = if (isDarkTheme) {
+    DarkColorPalette
+} else {
+    LightColorPalette
 }

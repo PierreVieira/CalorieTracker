@@ -1,4 +1,4 @@
-package com.example.core_ui.presentation
+package com.example.core_ui.presentation.theme
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp

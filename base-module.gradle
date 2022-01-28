@@ -35,6 +35,9 @@ android {
 dependencies {
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
+    implementation Kotlinx.coroutines
+    implementation AndroidX.coreKtx
+    implementation AndroidX.viewModelLifecycle
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt

@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.example.ui.presentation.components.app_bar.ScaffoldAppBar
+import com.example.ui.presentation.components.app_bar.ScaffoldTopAppBar
 import com.example.ui.presentation.components.spacers.VerticalSpacer
 import com.example.ui.presentation.theme.LocalSpacing
 import com.example.onboarding_presentation.components.buttons.ActionButton
@@ -26,7 +26,7 @@ fun BaseOnboardScreen(
     val spacing = LocalSpacing.current
     Scaffold(
         topBar = {
-            ScaffoldAppBar(
+            ScaffoldTopAppBar(
                 titleId = appBarTitleResource,
                 onBackClick = onBackClick
             )

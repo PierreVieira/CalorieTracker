@@ -18,6 +18,7 @@ interface Preferences {
 
     fun getAge(): Int
     fun getGender(): Gender
+    fun getHeight(): Int
 
     fun saveFatRatio(fatRatio: Float)
     fun loadUserInfo(): UserInfo
@@ -34,6 +35,7 @@ interface Preferences {
         const val KEY_FAT_RATIO = "fat_ratio"
 
         const val DEFAULT_AGE = 20
+        const val DEFAULT_HEIGHT = 170
         val defaultGender = Gender.MALE
     }
 }

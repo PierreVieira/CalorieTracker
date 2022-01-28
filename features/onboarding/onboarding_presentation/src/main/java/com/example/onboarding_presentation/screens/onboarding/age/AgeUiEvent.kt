@@ -1,12 +1,13 @@
 package com.example.onboarding_presentation.screens.onboarding.age
 
 import com.example.util.presentation.navigation.AppRoutes
-import com.example.util.presentation.ui.AlertUiEvent
-import com.example.util.presentation.ui.NavigationUiEvent
+import com.example.util.presentation.ui.event.AlertUiEvent
+import com.example.util.presentation.ui.event.NavigationUiEvent
 import com.example.util.presentation.ui.UiText
 import com.example.util.R
+import com.example.util.presentation.ui.event.base.UiEvent
 
-sealed interface AgeUiEvent {
+sealed interface AgeUiEvent: UiEvent {
     object AgeEnter : AgeUiEvent
     object NavigateToNext : NavigationUiEvent.Navigate(AppRoutes.HEIGHT), AgeUiEvent
     object NavigateToBack: NavigationUiEvent.NavigateUp(), AgeUiEvent

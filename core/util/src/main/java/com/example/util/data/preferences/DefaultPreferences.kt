@@ -48,21 +48,24 @@ class DefaultPreferences @Inject constructor(
         editor.putFloat(Preferences.KEY_FAT_RATIO, fatRatio)
     }
 
-    override fun getAge(): Int {
-        return getInt(
-            key = Preferences.KEY_AGE,
-            defaultValue = Preferences.DEFAULT_AGE
-        )
-    }
+    override fun getAge(): Int = getInt(
+        key = Preferences.KEY_AGE,
+        defaultValue = Preferences.DEFAULT_AGE
+    )
 
-    override fun getGender(): Gender {
-        return Gender.fromString(
-            getString(
-                key = Preferences.KEY_GENDER,
-                defaultValue = Preferences.defaultGender.name
-            )
+
+    override fun getGender(): Gender = Gender.fromString(
+        getString(
+            key = Preferences.KEY_GENDER,
+            defaultValue = Preferences.defaultGender.name
         )
-    }
+    )
+
+    override fun getHeight(): Int = getInt(
+        key = Preferences.KEY_HEIGHT,
+        defaultValue = Preferences.DEFAULT_HEIGHT
+    )
+
 
     override fun loadUserInfo(): UserInfo {
         val gender = getGender()

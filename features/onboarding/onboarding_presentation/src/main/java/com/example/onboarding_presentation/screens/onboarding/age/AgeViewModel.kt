@@ -1,38 +1,23 @@
 package com.example.onboarding_presentation.screens.onboarding.age
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.util.domain.preferences.Preferences
 import com.example.util.domain.use_case.FilterOutDigits
+import com.example.util.presentation.view_model.EventStateViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class AgeViewModel @Inject constructor(
     private val preferences: Preferences,
     private val filterOutDigits: FilterOutDigits
-) : ViewModel() {
+) : EventStateViewModel<AgeUiEvent, AgeUiState>(AgeUiState(age = "${preferences.getAge()}")) {
 
     companion object {
         private const val MAX_AGE = 120
     }
 
-    private val _uiState = MutableStateFlow(
-        AgeUiState(age = "${preferences.getAge()}")
-    )
-    val uiState: StateFlow<AgeUiState> = _uiState
-
-    private val _uiEvent = Channel<AgeUiEvent>()
-    val uiEvent = _uiEvent.receiveAsFlow()
-
     fun onAgeEnter(age: String) {
-        _uiState.update {
+        updateUiState {
             it.copy(
                 age = filterOutDigits(
                     text = age,
@@ -40,27 +25,21 @@ class AgeViewModel @Inject constructor(
                 )
             )
         }
-        viewModelScope.launch {
-            _uiEvent.send(AgeUiEvent.AgeEnter)
-        }
+        sendEvent(AgeUiEvent.AgeEnter)
     }
 
     fun onNextClick() {
         val age = uiState.value.age
-        viewModelScope.launch {
-            age.toIntOrNull()?.let {
-                saveAge(it)
-                _uiEvent.send(AgeUiEvent.NavigateToNext)
-            } ?: _uiEvent.send(AgeUiEvent.ShowInvalidAgeSnackBar)
-        }
+        age.toIntOrNull()?.let {
+            saveAge(it)
+            sendEvent(AgeUiEvent.NavigateToNext)
+        } ?: sendEvent(AgeUiEvent.ShowInvalidAgeSnackBar)
     }
 
     fun onBackClick() {
         val age = uiState.value.age.toIntOrNull() ?: 0
         saveAge(age)
-        viewModelScope.launch {
-            _uiEvent.send(AgeUiEvent.NavigateToBack)
-        }
+        sendEvent(AgeUiEvent.NavigateToBack)
     }
 
     private fun saveAge(age: Int) {

@@ -7,7 +7,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.util.domain.model.Gender
-import com.example.util.presentation.ui.NavigationUiEvent
+import com.example.util.presentation.ui.event.NavigationUiEvent
 import com.example.ui.presentation.components.spacers.HorizontalSpacer
 import com.example.onboarding_presentation.screens.onboarding.BaseOnboardScreen
 import com.example.onboarding_presentation.screens.onboarding.gender.components.GenderButton

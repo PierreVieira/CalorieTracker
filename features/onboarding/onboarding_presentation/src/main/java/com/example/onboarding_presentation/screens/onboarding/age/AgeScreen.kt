@@ -7,8 +7,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.util.presentation.ui.AlertUiEvent
-import com.example.util.presentation.ui.NavigationUiEvent
+import com.example.util.presentation.ui.event.AlertUiEvent
+import com.example.util.presentation.ui.event.NavigationUiEvent
 import com.example.util.R
 import com.example.util.presentation.ui.UiText
 import com.example.onboarding_presentation.components.UnitTextField

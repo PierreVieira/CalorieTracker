@@ -8,7 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.example.util.R
 import com.example.util.domain.model.Gender
 import com.example.onboarding_presentation.components.buttons.SelectableButton
-import com.example.onboarding_presentation.screens.onboarding.gender.GenderUiEvent
+import com.example.onboarding_presentation.screens.onboarding.gender.ui.GenderUiEvent
 
 @Composable
 internal fun GenderButton(

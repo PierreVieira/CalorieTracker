@@ -1,5 +1,7 @@
 package com.example.onboarding_presentation.screens.onboarding.age
 
+import com.example.onboarding_presentation.screens.onboarding.age.ui.AgeUiEvent
+import com.example.onboarding_presentation.screens.onboarding.age.ui.AgeUiState
 import com.example.util.domain.preferences.Preferences
 import com.example.util.domain.use_case.FilterOutDigits
 import com.example.util.presentation.view_model.EventStateViewModel

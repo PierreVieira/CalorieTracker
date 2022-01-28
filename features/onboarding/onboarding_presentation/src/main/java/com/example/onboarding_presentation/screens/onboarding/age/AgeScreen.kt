@@ -7,12 +7,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.util.presentation.ui.event.AlertUiEvent
-import com.example.util.presentation.ui.event.NavigationUiEvent
-import com.example.util.R
-import com.example.util.presentation.ui.UiText
 import com.example.onboarding_presentation.components.UnitTextField
 import com.example.onboarding_presentation.screens.onboarding.BaseOnboardScreen
+import com.example.util.R
+import com.example.util.presentation.ui.UiText
+import com.example.util.presentation.ui.event.AlertUiEvent
+import com.example.util.presentation.ui.event.NavigationUiEvent
 import kotlinx.coroutines.flow.collect
 
 @Composable
@@ -30,8 +30,8 @@ fun AgeScreen(
                 is NavigationUiEvent.Navigate -> onNavigate(uiEvent)
                 is NavigationUiEvent.NavigateUp -> onBackClick(uiEvent)
                 is AlertUiEvent.ShowSnackbar -> {
-                    val message = (uiEvent.message as UiText.StringResource).asString(context = context)
-                    scaffoldState.snackbarHostState.showSnackbar(message = message)
+                    val message = (uiEvent.message as UiText.StringResource).asString(context)
+                    scaffoldState.snackbarHostState.showSnackbar(message)
                 }
                 else -> {}
             }

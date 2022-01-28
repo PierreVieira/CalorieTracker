@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.onboarding.age
+package com.example.onboarding_presentation.screens.onboarding.age.ui
 
 import com.example.util.presentation.ui.UiState
 

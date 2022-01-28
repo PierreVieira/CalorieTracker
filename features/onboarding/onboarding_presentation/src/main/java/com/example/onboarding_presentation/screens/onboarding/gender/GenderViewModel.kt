@@ -1,5 +1,7 @@
 package com.example.onboarding_presentation.screens.onboarding.gender
 
+import com.example.onboarding_presentation.screens.onboarding.gender.ui.GenderUiEvent
+import com.example.onboarding_presentation.screens.onboarding.gender.ui.GenderUiState
 import com.example.util.domain.model.Gender
 import com.example.util.domain.preferences.Preferences
 import com.example.util.presentation.view_model.EventStateViewModel

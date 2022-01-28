@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.welcome
+package com.example.onboarding_presentation.screens.welcome.ui
 
 import com.example.util.presentation.navigation.AppRoutes
 import com.example.util.presentation.ui.event.NavigationUiEvent

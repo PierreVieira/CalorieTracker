@@ -5,7 +5,7 @@ import com.example.util.domain.model.Gender
 import com.example.util.domain.model.GoalType
 import com.example.util.domain.model.UserInfo
 
-interface Preferences {
+interface UserPreferences {
 
     fun saveGender(gender: Gender)
     fun saveAge(age: Int)
@@ -19,6 +19,7 @@ interface Preferences {
     fun getAge(): Int
     fun getGender(): Gender
     fun getHeight(): Int
+    fun getWeight(): Float
 
     fun saveFatRatio(fatRatio: Float)
     fun loadUserInfo(): UserInfo
@@ -36,6 +37,7 @@ interface Preferences {
 
         const val DEFAULT_AGE = 20
         const val DEFAULT_HEIGHT = 170
+        const val DEFAULT_WEIGHT = 68.0f
         val defaultGender = Gender.MALE
     }
 }

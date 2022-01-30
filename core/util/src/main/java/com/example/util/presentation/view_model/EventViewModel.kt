@@ -7,7 +7,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
-abstract class EventViewModel<EVENT: UiEvent>: ViewModel() {
+abstract class EventViewModel<EVENT : UiEvent> : ViewModel() {
     private val _uiEvent = Channel<EVENT>()
     val uiEvent = _uiEvent.receiveAsFlow()
     protected fun sendEvent(event: EVENT) {

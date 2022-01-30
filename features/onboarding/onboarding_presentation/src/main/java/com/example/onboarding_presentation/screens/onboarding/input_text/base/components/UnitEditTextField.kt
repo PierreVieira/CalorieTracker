@@ -1,6 +1,8 @@
 package com.example.onboarding_presentation.components
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
@@ -8,8 +10,10 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -17,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ui.presentation.components.spacers.HorizontalSpacer
 import com.example.ui.presentation.theme.CalorieTrackerTheme
@@ -25,7 +30,7 @@ import com.example.util.R
 
 @ExperimentalComposeUiApi
 @Composable
-fun UnitTextField(
+fun UnitEditTextField(
     value: String,
     @StringRes unitId: Int,
     onValueChange: (String) -> Unit,
@@ -33,13 +38,14 @@ fun UnitTextField(
     textStyle: TextStyle = TextStyle(
         color = MaterialTheme.colors.primaryVariant,
         fontSize = 70.sp
-    )
+    ),
 ) {
     val spacing = LocalSpacing.current
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManger = LocalFocusManager.current
+    val interactionSource = remember { MutableInteractionSource() }
     Row(
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
     ) {
         BasicTextField(
@@ -60,9 +66,16 @@ fun UnitTextField(
                 }
             )
         )
-        HorizontalSpacer(spacing.small)
         Text(
-            modifier = Modifier.alignBy(LastBaseline),
+            modifier = Modifier
+                .alignBy(LastBaseline)
+                .padding(spacing.small)
+                .clickable(
+                    indication = null,
+                    interactionSource = interactionSource
+                ) {
+                    focusManger.moveFocus(FocusDirection.Right)
+                },
             text = stringResource(id = unitId)
         )
     }
@@ -73,7 +86,7 @@ fun UnitTextField(
 @Preview(showBackground = true)
 private fun UnitTextFieldPreview() {
     CalorieTrackerTheme {
-        UnitTextField(
+        UnitEditTextField(
             value = "20",
             unitId = R.string.years,
             onValueChange = {}

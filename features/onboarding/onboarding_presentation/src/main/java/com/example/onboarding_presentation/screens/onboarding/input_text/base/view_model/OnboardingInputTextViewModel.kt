@@ -1,14 +1,15 @@
 package com.example.onboarding_presentation.screens.onboarding.input_text.base.view_model
 
+import androidx.lifecycle.viewModelScope
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.OnboardingInputTextUiEvent
-import com.example.util.domain.use_case.FilterOutDigits
+import com.example.util.domain.use_case.filter_out.FilterOutDigits
 import com.example.util.presentation.view_model.data.EventSingleDataViewModel
+import kotlinx.coroutines.launch
 
 @Suppress("UNCHECKED_CAST")
 abstract class OnboardingInputTextViewModel<EVENT : OnboardingInputTextUiEvent, VALUE_TYPE : Any>(
     firstData: String,
     private val filterOutDigits: FilterOutDigits,
-    private val maxValue: Int,
     private val defaultValue: VALUE_TYPE,
     private val valueEnterEvent: OnboardingInputTextUiEvent.ValueEnter,
     private val invalidSnackbarEvent: OnboardingInputTextUiEvent.ShowInvalidInputTextSnackbar,
@@ -18,7 +19,9 @@ abstract class OnboardingInputTextViewModel<EVENT : OnboardingInputTextUiEvent, 
     firstData
 ) {
     fun onValueEnter(value: String) {
-        updateUiValue(filterOutDigits(text = value, maxValue = maxValue))
+        viewModelScope.launch {
+            updateUiValue(filterOutDigits(value))
+        }
         sendEvent(valueEnterEvent as EVENT)
     }
     fun onNextClick() {

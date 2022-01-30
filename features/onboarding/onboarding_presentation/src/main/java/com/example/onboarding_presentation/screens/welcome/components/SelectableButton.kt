@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.components.buttons
+package com.example.onboarding_presentation.screens.welcome.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

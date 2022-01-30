@@ -17,7 +17,7 @@ import com.example.util.R
 import com.example.util.presentation.ui.event.NavigationUiEvent
 import com.example.ui.presentation.components.spacers.VerticalSpacer
 import com.example.ui.presentation.theme.LocalSpacing
-import com.example.onboarding_presentation.components.buttons.ActionButton
+import com.example.onboarding_presentation.components.ActionButton
 import kotlinx.coroutines.flow.collect
 
 @Composable

@@ -59,6 +59,23 @@
     <string name="your_goal">Your goal:</string>
     <string name="delete">Delete</string>
     <string name="age">Age</string>
+    <string name="low_age">Low age</string>
+    <string name="low_age_message">The reported age is too low</string>
+    <string name="high_age">High age</string>
+    <string name="high_age_message">The reported age is too high</string>
+    <string name="change_age">Change the age</string>
     <string name="height">Height</string>
+    <string name="low_height">Low height</string>
+    <string name="low_height_message">The reported height is too low</string>
+    <string name="high_height">High height</string>
+    <string name="high_height_message">The reported height is too high</string>
+    <string name="change_height">Change the height</string>
+    <string name="weight">Weight</string>
+    <string name="low_weight">Low weight</string>
+    <string name="weight_low_message">The reported weight is too low</string>
+    <string name="high_weight">High weight</string>
+    <string name="weight_height_message">The reported weight is too high</string>
+    <string name="change_weight">Change the weight</string>
     <string name="gender">Gender</string>
+    <string name="keep_value_informed">Keep value informed</string>
 </resources>

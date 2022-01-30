@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import com.example.ui.presentation.components.app_bar.ScaffoldTopAppBar
 import com.example.ui.presentation.components.spacers.VerticalSpacer
 import com.example.ui.presentation.theme.LocalSpacing
-import com.example.onboarding_presentation.components.buttons.ActionButton
+import com.example.onboarding_presentation.components.ActionButton
 import com.example.util.R
 
 @Composable

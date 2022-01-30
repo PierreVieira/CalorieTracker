@@ -2,20 +2,20 @@ package com.example.onboarding_presentation.screens.onboarding.input_text.impl.a
 
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.OnboardingInputTextUiEvent
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.view_model.OnboardingIntInputTextViewModel
-import com.example.util.domain.preferences.Preferences
-import com.example.util.domain.use_case.FilterOutDigits
+import com.example.util.domain.preferences.UserPreferences
+import com.example.util.domain.use_case.filter_out.FilterIntOutDigits
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class AgeViewModel @Inject constructor(
-    private val preferences: Preferences,
-    filterOutDigits: FilterOutDigits
+    private val userPreferences: UserPreferences,
+    filterOutDigits: FilterIntOutDigits
 ) : OnboardingIntInputTextViewModel<OnboardingInputTextUiEvent.AgeUiEvent>(
-    firstData = "${preferences.getAge()}",
+    firstData = "${userPreferences.getAge()}",
     filterOutDigits = filterOutDigits,
     maxValue = MAX_AGE,
-    defaultValue = Preferences.DEFAULT_AGE,
+    defaultValue = UserPreferences.DEFAULT_AGE,
     valueEnterEvent = OnboardingInputTextUiEvent.AgeUiEvent.AgeEnter,
     invalidSnackbarEvent = OnboardingInputTextUiEvent.AgeUiEvent.ShowInvalidAgeSnackBar,
     toNextEvent = OnboardingInputTextUiEvent.AgeUiEvent.NavigateToNext,
@@ -26,6 +26,6 @@ class AgeViewModel @Inject constructor(
     }
 
     override fun saveValue(value: Int) {
-        preferences.saveAge(value)
+        userPreferences.saveAge(value)
     }
 }

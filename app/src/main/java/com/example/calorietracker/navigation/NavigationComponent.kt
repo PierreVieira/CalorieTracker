@@ -10,6 +10,7 @@ import com.example.ui.presentation.navigation.extensions.navigate
 import com.example.onboarding_presentation.screens.onboarding.input_text.impl.age.AgeScreen
 import com.example.onboarding_presentation.screens.onboarding.gender.GenderScreen
 import com.example.onboarding_presentation.screens.onboarding.input_text.impl.height.HeightScreen
+import com.example.onboarding_presentation.screens.onboarding.input_text.impl.weight.WeightScreen
 import com.example.onboarding_presentation.screens.welcome.WelcomeScreen
 
 @ExperimentalComposeUiApi
@@ -40,12 +41,16 @@ fun NavigationComponent(scaffoldState: ScaffoldState) {
             )
         }
         composable(AppRoutes.WEIGHT) {
+            WeightScreen(
+                scaffoldState = scaffoldState,
+                onNavigate = navController::navigate,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+        composable(AppRoutes.ACTIVITY) {
 
         }
         composable(AppRoutes.NUTRIENT_GOAL) {
-
-        }
-        composable(AppRoutes.ACTIVITY) {
 
         }
         composable(AppRoutes.GOAL) {

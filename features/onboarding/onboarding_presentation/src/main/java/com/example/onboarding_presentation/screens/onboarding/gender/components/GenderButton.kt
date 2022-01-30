@@ -2,12 +2,11 @@ package com.example.onboarding_presentation.screens.onboarding.gender.components
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.example.util.R
 import com.example.util.domain.model.Gender
-import com.example.onboarding_presentation.components.buttons.SelectableButton
+import com.example.onboarding_presentation.screens.welcome.components.SelectableButton
 import com.example.onboarding_presentation.screens.onboarding.gender.ui.GenderUiEvent
 
 @Composable

@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.components.buttons
+package com.example.onboarding_presentation.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape

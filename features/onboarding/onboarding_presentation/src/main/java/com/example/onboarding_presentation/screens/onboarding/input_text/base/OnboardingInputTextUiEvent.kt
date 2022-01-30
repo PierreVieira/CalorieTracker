@@ -21,12 +21,24 @@ sealed interface OnboardingInputTextUiEvent : UiEvent {
             UiText.StringResource(alertTextId)
         ), OnboardingInputTextUiEvent
 
+    abstract class ShowAlertDialog(@StringRes titleId: Int, @StringRes messageId: Int) :
+        AlertUiEvent.Dialog.Show(
+            title = UiText.StringResource(titleId),
+            message = UiText.StringResource(messageId)
+        ), OnboardingInputTextUiEvent
+
     sealed interface AgeUiEvent : OnboardingInputTextUiEvent {
         object AgeEnter : ValueEnter(), AgeUiEvent
         object NavigateToNext : ToNext(AppRoutes.HEIGHT), AgeUiEvent
         object NavigateToBack : ToBack(), AgeUiEvent
         object ShowInvalidAgeSnackBar :
             ShowInvalidInputTextSnackbar(R.string.error_age_cant_be_empty), AgeUiEvent
+
+        class ShowInvalidAgeAlertDialog(@StringRes titleId: Int, @StringRes messageId: Int) :
+            ShowAlertDialog(
+                titleId = titleId,
+                messageId = messageId
+            )
     }
 
     sealed interface HeightUiEvent : OnboardingInputTextUiEvent {
@@ -35,5 +47,23 @@ sealed interface OnboardingInputTextUiEvent : UiEvent {
         object NavigateToBack : ToBack(), HeightUiEvent
         object ShowInvalidHeightSnackbar :
             ShowInvalidInputTextSnackbar(R.string.error_height_cant_be_empty), HeightUiEvent
+        class ShowInvalidHeightAlertDialog(@StringRes titleId: Int, @StringRes messageId: Int) :
+            ShowAlertDialog(
+                titleId = titleId,
+                messageId = messageId
+            )
+    }
+
+    sealed interface WeightUiEvent : OnboardingInputTextUiEvent {
+        object WeightEnter : ValueEnter(), WeightUiEvent
+        object NavigateToNext : ToNext(AppRoutes.ACTIVITY), WeightUiEvent
+        object NavigateToBack : ToBack(), WeightUiEvent
+        object ShowInvalidWeightSnackBar :
+            ShowInvalidInputTextSnackbar(R.string.error_weight_cant_be_empty), WeightUiEvent
+        class ShowInvalidWeightAlertDialog(@StringRes titleId: Int, @StringRes messageId: Int) :
+            ShowAlertDialog(
+                titleId = titleId,
+                messageId = messageId
+            )
     }
 }

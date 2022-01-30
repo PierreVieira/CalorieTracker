@@ -1,18 +1,18 @@
 package com.example.onboarding_presentation.screens.onboarding.input_text.base.view_model
 
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.OnboardingInputTextUiEvent
-import com.example.util.domain.use_case.filter_out.FilterIntOutDigits
+import com.example.util.domain.use_case.filter_out.float_digits.FilterFloatOutDigits
 
-abstract class OnboardingIntInputTextViewModel<EVENT : OnboardingInputTextUiEvent>(
+abstract class OnboardingFloatInputTextViewModel<EVENT : OnboardingInputTextUiEvent>(
     firstData: String,
-    filterOutDigits: FilterIntOutDigits,
-    maxValue: Int,
-    defaultValue: Int,
+    filterOutDigits: FilterFloatOutDigits,
+    maxValue: Float,
+    defaultValue: Float,
     valueEnterEvent: OnboardingInputTextUiEvent.ValueEnter,
     invalidSnackbarEvent: OnboardingInputTextUiEvent.ShowInvalidInputTextSnackbar,
     toNextEvent: OnboardingInputTextUiEvent.ToNext,
     toBackEvent: OnboardingInputTextUiEvent.ToBack
-) : OnboardingInputTextViewModel<EVENT, Int>(
+) : OnboardingInputTextViewModel<EVENT, Float>(
     firstData = firstData,
     filterOutDigits = filterOutDigits,
     defaultValue = defaultValue,
@@ -21,5 +21,5 @@ abstract class OnboardingIntInputTextViewModel<EVENT : OnboardingInputTextUiEven
     toNextEvent = toNextEvent,
     toBackEvent = toBackEvent
 ) {
-    override fun uiValueToValue(): Int? = uiState.value.toIntOrNull()
+    override fun uiValueToValue(): Float? = uiState.value.toFloatOrNull()
 }

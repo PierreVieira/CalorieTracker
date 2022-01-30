@@ -20,8 +20,6 @@ internal fun GenderButton(
     SelectableButton(
         text = stringResource(id = if (gender == Gender.MALE) R.string.male else R.string.female),
         isSelected = selectedGender == gender,
-        color = MaterialTheme.colors.primaryVariant,
-        selectedTextColor = Color.White,
         onClick = { onGenderClick(event) },
         textStyle = MaterialTheme.typography.button.copy(
             fontWeight = FontWeight.Normal

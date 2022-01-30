@@ -50,6 +50,7 @@ android {
 dependencies {
     implementation(Compose.compiler)
     implementation(Compose.ui)
+    implementation(Compose.uiTooling)
     implementation(Compose.uiToolingPreview)
     implementation(Compose.hiltNavigationCompose)
     implementation(Compose.material)

@@ -21,7 +21,7 @@ fun GenderScreen(
     onBackClick: (NavigationUiEvent.NavigateUp) -> Unit,
     viewModel: GenderViewModel = hiltViewModel()
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val gender by viewModel.uiState.collectAsState()
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { uiEvent ->
             when(uiEvent) {
@@ -32,7 +32,7 @@ fun GenderScreen(
         }
     }
     GenderScreen(
-        selectedGender = uiState.selectedGender,
+        selectedGender = gender,
         onGenderClick = { viewModel.onGenderClick(it.gender) },
         onNextClick = viewModel::onNextClick,
         onBackClick = viewModel::onBackClick

@@ -1,25 +1,23 @@
 package com.example.onboarding_presentation.screens.onboarding.input_text.base.view_model
 
-import com.example.onboarding_presentation.screens.onboarding.input_text.base.OnboardingInputTextUiEvent
-import com.example.util.domain.use_case.filter_out.float_digits.FilterFloatOutDigits
+import com.example.onboarding_domain.model.InvalidDialogMessages
+import com.example.onboarding_domain.model.OnboardingConstValues
+import com.example.onboarding_domain.use_case.models.OnboardingUseCases
+import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiEvent
+import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.model.base.OnboardingUiEventsModel
 
 abstract class OnboardingFloatInputTextViewModel<EVENT : OnboardingInputTextUiEvent>(
-    firstData: String,
-    filterOutDigits: FilterFloatOutDigits,
-    maxValue: Float,
-    defaultValue: Float,
-    valueEnterEvent: OnboardingInputTextUiEvent.ValueEnter,
-    invalidSnackbarEvent: OnboardingInputTextUiEvent.ShowInvalidInputTextSnackbar,
-    toNextEvent: OnboardingInputTextUiEvent.ToNext,
-    toBackEvent: OnboardingInputTextUiEvent.ToBack
-) : OnboardingInputTextViewModel<EVENT, Float>(
+    firstData: Float,
+    onboardingConstValues: OnboardingConstValues<Float>,
+    useCases: OnboardingUseCases<Float>,
+    invalidDialogMessages: InvalidDialogMessages,
+    uiEvents: OnboardingUiEventsModel
+) : OnboardingInputTextViewModel<Float>(
     firstData = firstData,
-    filterOutDigits = filterOutDigits,
-    defaultValue = defaultValue,
-    invalidSnackbarEvent = invalidSnackbarEvent,
-    valueEnterEvent = valueEnterEvent,
-    toNextEvent = toNextEvent,
-    toBackEvent = toBackEvent
+    onboardingConstValues = onboardingConstValues,
+    invalidDialogMessages = invalidDialogMessages,
+    useCases = useCases,
+    uiEvents = uiEvents
 ) {
-    override fun uiValueToValue(): Float? = uiState.value.toFloatOrNull()
+    override fun uiValueToValue(): Float? = uiState.value.data.editTextValue.toFloatOrNull()
 }

@@ -5,7 +5,7 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.example.util.data.preferences.DefaultUserPreferences
 import com.example.util.domain.preferences.UserPreferences
-import com.example.util.domain.use_case.filter_out.FilterIntOutDigits
+import com.example.util.domain.use_case.filter_out.FilterIntOutDigitsUseCase
 import com.example.util.domain.use_case.filter_out.float_digits.*
 import dagger.Module
 import dagger.Provides
@@ -33,7 +33,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesFilterIntOutDigitsUseCase(): FilterIntOutDigits = FilterIntOutDigits()
+    fun providesFilterIntOutDigitsUseCase(): FilterIntOutDigitsUseCase = FilterIntOutDigitsUseCase()
 
     @Provides
     @Singleton
@@ -45,8 +45,8 @@ object AppModule {
         isPointSeparator: IsPointSeparator,
         removeLastPoint: RemoveLastPoint,
         haveMoreOnePoint: HaveMoreOnePoint
-    ): FilterFloatOutDigits =
-        FilterFloatOutDigits(
+    ): FilterFloatOutDigitsUseCase =
+        FilterFloatOutDigitsUseCase(
             mapCommaToPoint = MapCommaToPoint(),
             isPointSeparator = isPointSeparator,
             haveMoreOnePoint = haveMoreOnePoint,

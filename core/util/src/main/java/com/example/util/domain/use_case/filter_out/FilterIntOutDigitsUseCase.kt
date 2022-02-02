@@ -1,6 +1,6 @@
 package com.example.util.domain.use_case.filter_out
 
-class FilterIntOutDigits : FilterOutDigits() {
+class FilterIntOutDigitsUseCase : FilterOutDigitsUseCase() {
 
     override suspend fun execute(params: String): String = "${textToValue(params) ?: ""}"
 

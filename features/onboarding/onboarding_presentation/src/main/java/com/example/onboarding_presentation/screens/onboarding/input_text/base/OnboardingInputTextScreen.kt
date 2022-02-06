@@ -8,7 +8,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
-import com.example.onboarding_presentation.components.UnitEditTextField
+import com.example.onboarding_presentation.screens.onboarding.input_text.base.components.UnitEditTextField
 import com.example.onboarding_presentation.screens.onboarding.BaseOnboardScreen
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.components.InvalidValuesDialog
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiEvent
@@ -32,8 +32,7 @@ fun <VALUE_TYPE : Comparable<VALUE_TYPE>> OnboardingInputTextScreen(
 ) {
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsState()
-    val editTextValue = uiState.data.editTextValue
-    val dialogData = uiState.data.dialogUiData
+    val dialogData = uiState.dialogUiData
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collectLatest { uiEvent: OnboardingInputTextUiEvent ->
             when (uiEvent) {
@@ -54,9 +53,11 @@ fun <VALUE_TYPE : Comparable<VALUE_TYPE>> OnboardingInputTextScreen(
         onBackClick = viewModel::onBackClick
     ) {
         UnitEditTextField(
-            value = editTextValue,
+            value = uiState.editTextValue,
+            focused = uiState.editTextFocused,
             unitId = unitTextResourceId,
-            onValueChange = viewModel::onValueEnter
+            onValueChange = viewModel::onValueEnter,
+            changeFocusState = {}
         )
         if (dialogData != null && uiState.showDialog) {
             InvalidValuesDialog(

@@ -19,5 +19,5 @@ abstract class OnboardingIntInputTextViewModel<EVENT : OnboardingInputTextUiEven
     uiEvents = uiEvents,
     invalidDialogMessages = invalidDialogMessages
 ) {
-    override fun uiValueToValue(): Int? = uiState.value.data.editTextValue.toIntOrNull()
+    override fun uiValueToValue(): Int? = uiState.value.editTextValue.toIntOrNull()
 }

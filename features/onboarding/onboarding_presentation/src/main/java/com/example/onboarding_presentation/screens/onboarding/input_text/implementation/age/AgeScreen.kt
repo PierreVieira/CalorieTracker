@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.onboarding.input_text.impl.height
+package com.example.onboarding_presentation.screens.onboarding.input_text.implementation.age
 
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
@@ -10,17 +10,17 @@ import com.example.util.presentation.ui.event.NavigationUiEvent
 
 @ExperimentalComposeUiApi
 @Composable
-fun HeightScreen(
+fun AgeScreen(
     scaffoldState: ScaffoldState,
     onNavigate: (NavigationUiEvent.Navigate) -> Unit,
     onBackClick: (NavigationUiEvent.NavigateUp) -> Unit,
-    viewModel: HeightViewModel = hiltViewModel()
+    viewModel: AgeViewModel = hiltViewModel()
 ) = OnboardingInputTextScreen(
     viewModel = viewModel,
     scaffoldState = scaffoldState,
-    appBarTitleResourceId = R.string.height,
-    questionResourceId = R.string.whats_your_height,
-    unitTextResourceId = R.string.cm,
+    appBarTitleResourceId = R.string.age,
+    questionResourceId = R.string.whats_your_age,
+    unitTextResourceId = R.string.years,
     onNavigate = onNavigate,
     onBackClick = onBackClick
 )

@@ -7,5 +7,8 @@ import com.example.ui.presentation.components.spacers.base.BaseSpacer
 
 @Composable
 fun HorizontalSpacer(size: Dp? = null) {
-    BaseSpacer(spacerType = SpacerType.HORIZONTAL, size = size)
+    BaseSpacer(
+        spacerType = SpacerType.HORIZONTAL,
+        size = size
+    )
 }

@@ -21,6 +21,8 @@ sealed interface OnboardingInputTextUiEvent : UiEvent {
             UiText.StringResource(alertTextId)
         ), OnboardingInputTextUiEvent
 
+    object MoveFocusToEditText: OnboardingInputTextUiEvent
+
     sealed interface Dialog: OnboardingInputTextUiEvent {
         object Show: Dialog, AlertUiEvent.Dialog.Show
         object ToggleCheck: Dialog, AlertUiEvent.Dialog.ToggleCheck

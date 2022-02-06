@@ -3,8 +3,9 @@ package com.example.onboarding_presentation.screens.onboarding.input_text.base.u
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiEvent
 
 abstract class OnboardingUiEventsModel(
-    open val valueEnterEvent: OnboardingInputTextUiEvent.ValueEnter,
-    open val invalidSnackbarEvent: OnboardingInputTextUiEvent.ShowInvalidInputTextSnackbar,
-    open val toNextEvent: OnboardingInputTextUiEvent.ToNext,
-    open val toBackEvent: OnboardingInputTextUiEvent.ToBack
+    val valueEnterEvent: OnboardingInputTextUiEvent.ValueEnter,
+    val invalidSnackbarEvent: OnboardingInputTextUiEvent.ShowInvalidInputTextSnackbar,
+    val toNextEvent: OnboardingInputTextUiEvent.ToNext,
+    val toBackEvent: OnboardingInputTextUiEvent.ToBack,
+    val moveFocus: OnboardingInputTextUiEvent.MoveFocusToEditText,
 )

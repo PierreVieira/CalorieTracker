@@ -19,5 +19,5 @@ abstract class OnboardingFloatInputTextViewModel<EVENT : OnboardingInputTextUiEv
     useCases = useCases,
     uiEvents = uiEvents
 ) {
-    override fun uiValueToValue(): Float? = uiState.value.data.editTextValue.toFloatOrNull()
+    override fun uiValueToValue(): Float? = uiState.value.editTextValue.toFloatOrNull()
 }

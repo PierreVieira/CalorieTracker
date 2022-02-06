@@ -1,10 +1,8 @@
 package com.example.onboarding_presentation.screens.onboarding.input_text.base.components
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Button
 import androidx.compose.material.Checkbox
@@ -16,6 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.ui.presentation.components.spacers.HorizontalSpacer
+import com.example.ui.presentation.components.spacers.VerticalSpacer
 import com.example.ui.presentation.theme.CalorieTrackerTheme
 import com.example.ui.presentation.theme.LocalSpacing
 import com.example.util.R
@@ -30,28 +29,31 @@ fun InvalidValuesDialog(
     onDismissRequest: () -> Unit,
     buttonClick: () -> Unit,
 ) {
+    val spaces = LocalSpacing.current
     AlertDialog(
         onDismissRequest = onDismissRequest,
         title = {
             Text(
                 text = stringResource(id = title),
-                fontSize = 16.sp
+                fontSize = 20.sp
             )
         },
         text = {
             Column {
                 Text(
                     text = stringResource(id = message),
-                    fontSize = 14.sp
+                    fontSize = 18.sp
                 )
+                VerticalSpacer(spaces.small)
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Checkbox(checked = checkBoxIsChecked, onCheckedChange = { onCheckChange() })
-                    HorizontalSpacer(LocalSpacing.current.extraSmall)
+                    HorizontalSpacer(spaces.extraSmall)
                     Text(
+                        modifier = Modifier.clickable { onCheckChange() },
                         text = stringResource(id = R.string.keep_value_informed),
-                        fontSize = 12.sp
+                        fontSize = 16.sp
                     )
                 }
             }

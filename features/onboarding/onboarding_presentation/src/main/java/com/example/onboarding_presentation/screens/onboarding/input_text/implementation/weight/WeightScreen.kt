@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.onboarding.input_text.impl.weight
+package com.example.onboarding_presentation.screens.onboarding.input_text.implementation.weight
 
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable

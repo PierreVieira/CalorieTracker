@@ -1,7 +1,8 @@
 package com.example.onboarding_domain.di
 
-import com.example.onboarding_domain.use_case.IgnoreInvalidFloatUseCase
-import com.example.onboarding_domain.use_case.IgnoreInvalidIntUseCase
+import com.example.onboarding_domain.use_case.GetInvalidDialogMessagesUseCase
+import com.example.onboarding_domain.use_case.InvalidCurrentValueUseCase
+import com.example.onboarding_domain.use_case.NeedsShowInvalidValuesDialogUseCase
 import com.example.onboarding_domain.use_case.models.OnboardingFloatUseCases
 import com.example.onboarding_domain.use_case.models.OnboardingIntUseCases
 import com.example.util.domain.use_case.filter_out.FilterIntOutDigitsUseCase
@@ -19,29 +20,59 @@ object OnboardingUseCaseModule {
 
     @Provides
     @Singleton
-    fun provideIgonreInvalidIntUseCase(): IgnoreInvalidIntUseCase = IgnoreInvalidIntUseCase()
+    fun providesInvalidCurrentValueUseCaseInt(): InvalidCurrentValueUseCase<Int> =
+        InvalidCurrentValueUseCase()
 
     @Provides
     @Singleton
-    fun provideIgonreInvalidFloatUseCase(): IgnoreInvalidFloatUseCase = IgnoreInvalidFloatUseCase()
+    fun providesInvalidCurrentValueUseCaseFloat(): InvalidCurrentValueUseCase<Float> =
+        InvalidCurrentValueUseCase()
+
+    @Provides
+    @Singleton
+    fun providesGetDialogMessagesUseCaseFloat(): GetInvalidDialogMessagesUseCase<Float> =
+        GetInvalidDialogMessagesUseCase()
+
+    @Provides
+    @Singleton
+    fun providesGetDialogMessagesUseCaseInt(): GetInvalidDialogMessagesUseCase<Int> =
+        GetInvalidDialogMessagesUseCase()
+
+    @Provides
+    @Singleton
+    fun providesNedsShowInvalidValuesDialogInt(
+        invalidCurrentValueUseCase: InvalidCurrentValueUseCase<Int>,
+    ): NeedsShowInvalidValuesDialogUseCase<Int> =
+        NeedsShowInvalidValuesDialogUseCase(invalidCurrentValueUseCase)
+
+    @Provides
+    @Singleton
+    fun providesNedsShowInvalidValuesDialogFloat(
+        invalidCurrentValueUseCase: InvalidCurrentValueUseCase<Float>,
+    ): NeedsShowInvalidValuesDialogUseCase<Float> =
+        NeedsShowInvalidValuesDialogUseCase(invalidCurrentValueUseCase)
 
     @Singleton
     @Provides
     fun provideOnboardingFloatUseCases(
         filterOutFloatUseCases: FilterFloatOutDigitsUseCase,
-        ignoreInvalidFloatUseCase: IgnoreInvalidFloatUseCase
+        needsShowInvalidValuesDialog: NeedsShowInvalidValuesDialogUseCase<Float>,
+        getInvalidDialogMessagesUseCase: GetInvalidDialogMessagesUseCase<Float>
     ): OnboardingFloatUseCases = OnboardingFloatUseCases(
         filterOutDigits = filterOutFloatUseCases,
-        needsShowDialog = ignoreInvalidFloatUseCase
+        needsShowInvalidValuesDialog = needsShowInvalidValuesDialog,
+        getInvalidDialogMessages = getInvalidDialogMessagesUseCase
     )
 
     @Singleton
     @Provides
     fun provideOnboardingIntUseCases(
         filterOutIntUseCase: FilterIntOutDigitsUseCase,
-        ignoreInvalidIntUseCase: IgnoreInvalidIntUseCase
+        needsShowInvalidValuesDialog: NeedsShowInvalidValuesDialogUseCase<Int>,
+        getInvalidDialogMessagesUseCase: GetInvalidDialogMessagesUseCase<Int>
     ): OnboardingIntUseCases = OnboardingIntUseCases(
         filterOutDigits = filterOutIntUseCase,
-        needsShowDialog = ignoreInvalidIntUseCase
+        needsShowInvalidValuesDialog = needsShowInvalidValuesDialog,
+        getInvalidDialogMessages = getInvalidDialogMessagesUseCase
     )
 }

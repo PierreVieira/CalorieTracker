@@ -27,8 +27,8 @@ enum class InvalidDialogMessages(
     WEIGHT(
         titleLow = R.string.low_weight,
         titleHigh = R.string.high_weight,
-        messageLow = R.string.low_weight,
-        messageHigh = R.string.high_weight,
+        messageLow = R.string.weight_low_message,
+        messageHigh = R.string.weight_height_message,
         changeValue = R.string.change_weight
     )
 }

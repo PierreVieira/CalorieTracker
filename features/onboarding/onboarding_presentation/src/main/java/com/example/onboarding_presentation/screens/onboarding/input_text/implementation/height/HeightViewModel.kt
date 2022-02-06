@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.onboarding.input_text.impl.height
+package com.example.onboarding_presentation.screens.onboarding.input_text.implementation.height
 
 import com.example.onboarding_domain.model.InvalidDialogMessages
 import com.example.onboarding_domain.model.OnboardingConstValues

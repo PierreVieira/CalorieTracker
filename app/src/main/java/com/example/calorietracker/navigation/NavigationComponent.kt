@@ -7,10 +7,10 @@ import com.example.util.presentation.navigation.AppRoutes
 import com.example.ui.presentation.navigation.NavigationHost
 import com.example.ui.presentation.navigation.extensions.composable
 import com.example.ui.presentation.navigation.extensions.navigate
-import com.example.onboarding_presentation.screens.onboarding.input_text.impl.age.AgeScreen
+import com.example.onboarding_presentation.screens.onboarding.input_text.implementation.age.AgeScreen
 import com.example.onboarding_presentation.screens.onboarding.gender.GenderScreen
-import com.example.onboarding_presentation.screens.onboarding.input_text.impl.height.HeightScreen
-import com.example.onboarding_presentation.screens.onboarding.input_text.impl.weight.WeightScreen
+import com.example.onboarding_presentation.screens.onboarding.input_text.implementation.height.HeightScreen
+import com.example.onboarding_presentation.screens.onboarding.input_text.implementation.weight.WeightScreen
 import com.example.onboarding_presentation.screens.welcome.WelcomeScreen
 
 @ExperimentalComposeUiApi

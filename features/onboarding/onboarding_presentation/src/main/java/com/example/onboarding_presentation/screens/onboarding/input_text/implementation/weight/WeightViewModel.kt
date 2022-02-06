@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.onboarding.input_text.impl.weight
+package com.example.onboarding_presentation.screens.onboarding.input_text.implementation.weight
 
 import com.example.onboarding_domain.model.InvalidDialogMessages
 import com.example.onboarding_domain.model.OnboardingConstValues

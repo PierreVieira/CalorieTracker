@@ -1,11 +1,10 @@
 package com.example.util.presentation.view_model
 
-import com.example.util.presentation.ui.data.UiData
-import com.example.util.presentation.ui.state.base.UiState
 import com.example.util.presentation.ui.event.base.UiEvent
+import com.example.util.presentation.ui.state.base.UiState
 import com.example.util.presentation.view_model.observable.UiStateObservable
 
-abstract class EventStateViewModel<DATA: UiData, EVENT : UiEvent, STATE : UiState<DATA>>(
+abstract class EventStateViewModel<EVENT : UiEvent, STATE : UiState>(
     firstState: STATE
 ) : EventViewModel<EVENT>() {
 

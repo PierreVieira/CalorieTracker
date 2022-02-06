@@ -1,12 +1,15 @@
 package com.example.onboarding_domain.use_case.models
 
-import com.example.onboarding_domain.use_case.NeedsShowDialog
+import com.example.onboarding_domain.use_case.GetInvalidDialogMessagesUseCase
+import com.example.onboarding_domain.use_case.NeedsShowInvalidValuesDialogUseCase
 import com.example.util.domain.use_case.filter_out.float_digits.FilterFloatOutDigitsUseCase
 
 data class OnboardingFloatUseCases(
     override val filterOutDigits: FilterFloatOutDigitsUseCase,
-    override val needsShowDialog: NeedsShowDialog<Float>
+    override val needsShowInvalidValuesDialog: NeedsShowInvalidValuesDialogUseCase<Float>,
+    override val getInvalidDialogMessages: GetInvalidDialogMessagesUseCase<Float>
 ): OnboardingUseCases<Float>(
     filterOutDigits = filterOutDigits,
-    needsShowDialog = needsShowDialog
+    needsShowInvalidValuesDialog = needsShowInvalidValuesDialog,
+    getInvalidDialogMessages = getInvalidDialogMessages
 )

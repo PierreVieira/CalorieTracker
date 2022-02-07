@@ -21,7 +21,7 @@ fun BaseOnboardScreen(
     @StringRes questionResource: Int,
     onNextClick: () -> Unit,
     onBackClick: (() -> Unit)? = null,
-    buttonsScope: @Composable () -> Unit,
+    content: @Composable () -> Unit,
 ) {
     val spacing = LocalSpacing.current
     Scaffold(
@@ -47,7 +47,7 @@ fun BaseOnboardScreen(
                     style = MaterialTheme.typography.h3
                 )
                 VerticalSpacer()
-                buttonsScope()
+                content()
             }
             ActionButton(
                 modifier = Modifier.align(Alignment.BottomEnd),

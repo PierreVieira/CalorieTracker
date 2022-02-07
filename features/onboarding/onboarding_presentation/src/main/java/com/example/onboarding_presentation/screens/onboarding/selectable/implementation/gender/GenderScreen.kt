@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.onboarding.gender
+package com.example.onboarding_presentation.screens.onboarding.selectable.implementation.gender
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -10,8 +10,8 @@ import com.example.util.domain.model.Gender
 import com.example.util.presentation.ui.event.NavigationUiEvent
 import com.example.ui.presentation.components.spacers.HorizontalSpacer
 import com.example.onboarding_presentation.screens.onboarding.BaseOnboardScreen
-import com.example.onboarding_presentation.screens.onboarding.gender.components.GenderButton
-import com.example.onboarding_presentation.screens.onboarding.gender.ui.GenderUiEvent
+import com.example.onboarding_presentation.screens.onboarding.selectable.implementation.gender.components.GenderButton
+import com.example.onboarding_presentation.screens.onboarding.selectable.implementation.gender.ui.GenderUiEvent
 import kotlinx.coroutines.flow.collect
 import com.example.util.R
 

@@ -1,4 +1,4 @@
-package com.example.onboarding_presentation.screens.onboarding.gender.ui
+package com.example.onboarding_presentation.screens.onboarding.selectable.implementation.gender.ui
 
 import com.example.util.domain.model.Gender
 import com.example.util.presentation.navigation.AppRoutes

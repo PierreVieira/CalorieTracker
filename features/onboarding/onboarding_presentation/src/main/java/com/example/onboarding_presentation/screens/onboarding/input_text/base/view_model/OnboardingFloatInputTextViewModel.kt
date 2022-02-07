@@ -2,7 +2,7 @@ package com.example.onboarding_presentation.screens.onboarding.input_text.base.v
 
 import com.example.onboarding_domain.model.InvalidDialogMessages
 import com.example.onboarding_domain.model.OnboardingConstValues
-import com.example.onboarding_domain.use_case.models.OnboardingUseCases
+import com.example.onboarding_domain.use_case.OnboardingUseCases
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiEvent
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.model.base.OnboardingUiEventsModel
 

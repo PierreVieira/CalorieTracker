@@ -3,8 +3,7 @@ package com.example.onboarding_domain.di
 import com.example.onboarding_domain.use_case.GetInvalidDialogMessagesUseCase
 import com.example.onboarding_domain.use_case.InvalidCurrentValueUseCase
 import com.example.onboarding_domain.use_case.NeedsShowInvalidValuesDialogUseCase
-import com.example.onboarding_domain.use_case.models.OnboardingFloatUseCases
-import com.example.onboarding_domain.use_case.models.OnboardingIntUseCases
+import com.example.onboarding_domain.use_case.OnboardingUseCases
 import com.example.util.domain.use_case.filter_out.FilterIntOutDigitsUseCase
 import com.example.util.domain.use_case.filter_out.float_digits.FilterFloatOutDigitsUseCase
 import dagger.Module
@@ -58,7 +57,7 @@ object OnboardingUseCaseModule {
         filterOutFloatUseCases: FilterFloatOutDigitsUseCase,
         needsShowInvalidValuesDialog: NeedsShowInvalidValuesDialogUseCase<Float>,
         getInvalidDialogMessagesUseCase: GetInvalidDialogMessagesUseCase<Float>
-    ): OnboardingFloatUseCases = OnboardingFloatUseCases(
+    ): OnboardingUseCases<Float> = OnboardingUseCases(
         filterOutDigits = filterOutFloatUseCases,
         needsShowInvalidValuesDialog = needsShowInvalidValuesDialog,
         getInvalidDialogMessages = getInvalidDialogMessagesUseCase
@@ -70,7 +69,7 @@ object OnboardingUseCaseModule {
         filterOutIntUseCase: FilterIntOutDigitsUseCase,
         needsShowInvalidValuesDialog: NeedsShowInvalidValuesDialogUseCase<Int>,
         getInvalidDialogMessagesUseCase: GetInvalidDialogMessagesUseCase<Int>
-    ): OnboardingIntUseCases = OnboardingIntUseCases(
+    ): OnboardingUseCases<Int> = OnboardingUseCases(
         filterOutDigits = filterOutIntUseCase,
         needsShowInvalidValuesDialog = needsShowInvalidValuesDialog,
         getInvalidDialogMessages = getInvalidDialogMessagesUseCase

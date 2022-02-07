@@ -2,7 +2,7 @@ package com.example.onboarding_presentation.screens.onboarding.input_text.implem
 
 import com.example.onboarding_domain.model.InvalidDialogMessages
 import com.example.onboarding_domain.model.OnboardingConstValues
-import com.example.onboarding_domain.use_case.models.OnboardingIntUseCases
+import com.example.onboarding_domain.use_case.OnboardingUseCases
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiEvent
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.model.AgeUiEventsModel
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.view_model.OnboardingIntInputTextViewModel
@@ -14,7 +14,7 @@ import javax.inject.Inject
 class AgeViewModel @Inject constructor(
     private val userPreferences: UserPreferences,
     ageUiEventsModel: AgeUiEventsModel,
-    onboardingIntUseCase: OnboardingIntUseCases
+    onboardingIntUseCase: OnboardingUseCases<Int>
 ) : OnboardingIntInputTextViewModel<OnboardingInputTextUiEvent.AgeUiEvent>(
     firstData = userPreferences.getAge(),
     invalidDialogMessages = InvalidDialogMessages.AGE,

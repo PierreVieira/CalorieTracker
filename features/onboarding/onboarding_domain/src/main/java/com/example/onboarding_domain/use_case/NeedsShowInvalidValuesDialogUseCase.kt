@@ -22,7 +22,7 @@ class NeedsShowInvalidValuesDialogUseCase<T : Comparable<T>> @Inject constructor
             currentValue = params.currentValue
         )
         return dialogChecked?.let {
-            it && invalidCurrentValue(invalidCurrentValueParams)
+            !it && invalidCurrentValue(invalidCurrentValueParams)
         } ?: invalidCurrentValue(invalidCurrentValueParams)
     }
 

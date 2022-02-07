@@ -2,7 +2,7 @@ package com.example.onboarding_presentation.screens.onboarding.input_text.implem
 
 import com.example.onboarding_domain.model.InvalidDialogMessages
 import com.example.onboarding_domain.model.OnboardingConstValues
-import com.example.onboarding_domain.use_case.models.OnboardingFloatUseCases
+import com.example.onboarding_domain.use_case.OnboardingUseCases
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiEvent
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.model.WeightUiEventsModel
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.view_model.OnboardingFloatInputTextViewModel
@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class WeightViewModel @Inject constructor(
     private val userPreferences: UserPreferences,
-    onboardingFloatUseCases: OnboardingFloatUseCases,
+    onboardingFloatUseCases: OnboardingUseCases<Float>,
     weightUiEventsModel: WeightUiEventsModel,
 ) : OnboardingFloatInputTextViewModel<OnboardingInputTextUiEvent.WeightUiEvent>(
     firstData = userPreferences.getWeight(),

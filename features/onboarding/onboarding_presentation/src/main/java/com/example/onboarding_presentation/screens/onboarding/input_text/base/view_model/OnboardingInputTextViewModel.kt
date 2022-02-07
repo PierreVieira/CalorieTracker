@@ -5,7 +5,7 @@ import com.example.onboarding_domain.model.InvalidDialogMessages
 import com.example.onboarding_domain.model.OnboardingConstValues
 import com.example.onboarding_domain.use_case.GetInvalidDialogMessagesUseCase
 import com.example.onboarding_domain.use_case.NeedsShowInvalidValuesDialogUseCase
-import com.example.onboarding_domain.use_case.models.OnboardingUseCases
+import com.example.onboarding_domain.use_case.OnboardingUseCases
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingDialogUiData
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiEvent
 import com.example.onboarding_presentation.screens.onboarding.input_text.base.ui.OnboardingInputTextUiState
@@ -32,7 +32,10 @@ abstract class OnboardingInputTextViewModel<VALUE_TYPE : Comparable<VALUE_TYPE>>
         viewModelScope.launch {
             val newValue = useCases.filterOutDigits(value)
             updateUiState {
-                it.copy(editTextValue = newValue)
+                it.copy(
+                    editTextValue = newValue,
+                    editTextFocused = true
+                )
             }
         }
         sendEvent(uiEvents.valueEnterEvent)
@@ -41,7 +44,12 @@ abstract class OnboardingInputTextViewModel<VALUE_TYPE : Comparable<VALUE_TYPE>>
     fun onNextClick() {
         uiValueToValue()?.let { editTextValue ->
             dialogValidation(editTextValue, uiEvents.toNextEvent)
-        } ?: sendEvent(uiEvents.invalidSnackbarEvent)
+        } ?: run {
+            updateUiState {
+                it.copy(editTextFocused = true)
+            }
+            sendEvent(uiEvents.invalidSnackbarEvent)
+        }
     }
 
     fun onBackClick() {
@@ -77,10 +85,16 @@ abstract class OnboardingInputTextViewModel<VALUE_TYPE : Comparable<VALUE_TYPE>>
             sendEvent(uiEvents.toNextEvent)
         } else {
             hideDialog()
+            changeFocusState(true)
             sendEvent(uiEvents.moveFocus)
         }
     }
 
+    fun changeFocusState(isFocused: Boolean) {
+        updateUiState {
+            it.copy(editTextFocused = isFocused)
+        }
+    }
 
     private fun hideDialog() {
         updateUiState {

@@ -29,6 +29,9 @@ import androidx.compose.ui.unit.sp
 import com.example.ui.presentation.theme.CalorieTrackerTheme
 import com.example.ui.presentation.theme.LocalSpacing
 import com.example.util.R
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.selects.select
 
 @ExperimentalComposeUiApi
 @Composable
@@ -57,8 +60,7 @@ fun UnitEditTextField(
             modifier = Modifier
                 .width(IntrinsicSize.Min)
                 .alignBy(LastBaseline)
-                .focusRequester(focusRequester)
-            ,
+                .focusRequester(focusRequester),
             value = value,
             onValueChange = onValueChange,
             textStyle = textStyle,
@@ -69,8 +71,6 @@ fun UnitEditTextField(
             keyboardActions = KeyboardActions(
                 onDone = {
                     changeFocusState(false)
-                    keyboardController?.hide()
-                    focusManger.clearFocus()
                 }
             )
         )
@@ -88,11 +88,12 @@ fun UnitEditTextField(
             text = stringResource(id = unitId)
         )
     }
-    LaunchedEffect(key1 = Unit) {
-        if (focused) {
-            keyboardController?.show()
-            focusRequester.requestFocus()
-        }
+    if (focused) {
+        keyboardController?.show()
+        focusRequester.requestFocus()
+    } else {
+        keyboardController?.hide()
+        focusManger.clearFocus()
     }
 }
 

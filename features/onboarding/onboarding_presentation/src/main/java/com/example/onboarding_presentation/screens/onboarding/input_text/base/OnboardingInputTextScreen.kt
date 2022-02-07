@@ -57,7 +57,7 @@ fun <VALUE_TYPE : Comparable<VALUE_TYPE>> OnboardingInputTextScreen(
             focused = uiState.editTextFocused,
             unitId = unitTextResourceId,
             onValueChange = viewModel::onValueEnter,
-            changeFocusState = {}
+            changeFocusState = viewModel::changeFocusState
         )
         if (dialogData != null && uiState.showDialog) {
             InvalidValuesDialog(
